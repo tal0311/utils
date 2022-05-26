@@ -1,0 +1,38 @@
+var gSecond = 0;
+var gMilliseconds = 0;
+var gMinutes = 0;
+function timer() {
+    gMilliseconds += 10; // Another 10 millisec interval has passed
+
+    // Seconds is the number of round 1000 milliseconds that has passed
+    gSecond = Math.floor(gMilliseconds / 1000);
+
+    // Calculate the residue of the millisecs after reducing the seconds
+    var millSec = gMilliseconds - gSecond * 1000;
+
+    // Calculate the minutes that have passed
+    gMinutes = Math.floor(gSecond / 60);
+    var displaySecond = gSecond - gMinutes * 60;
+    var strHTML = `${gMinutes}:${displaySecond}:${millSec}`;
+    var elTimer = document.querySelector('.timer');
+    elTimer.innerHTML = strHTML;
+}
+
+function getTime() {
+    return new Date().toString().split(' ')[4];
+}
+
+function startTimer() {
+    gStartTime = Date.now()
+    gIntervalId = setInterval(updateTime, 80)
+}
+
+function updateTime() {
+    var now = Date.now()
+    var diff = now - gStartTime
+    var secondsPast = diff / 1000
+    var elTimerSpan = document.querySelector('.timer span')
+    elTimerSpan.innerText = secondsPast.toFixed(3)
+
+}
+/
