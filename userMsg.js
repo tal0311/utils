@@ -1,3 +1,9 @@
+// Put this in your HTML file
+     <section class="user-msg">
+      <h4 class="msg-txt">user msg</h4>
+     </section>
+
+
 // Put this in your JS file
 function setUserMsg(msg) {
   document.querySelector(".user-msg").classList.toggle("open");
