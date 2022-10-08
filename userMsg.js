@@ -1,3 +1,4 @@
+// Put this in your JS file
 function setUserMsg(msg) {
   document.querySelector(".user-msg").classList.toggle("open");
   if (!msg) return;
@@ -5,6 +6,7 @@ function setUserMsg(msg) {
   setTimeout(setUserMsg, 2000);
 }
 
+// Put this in your CSS
 .user-msg.open {
   transform: translateX(0);
 }
