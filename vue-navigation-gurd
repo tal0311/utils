@@ -1,0 +1,18 @@
+// import store at top of file
+import { store } from './../store/index.js'
+
+// this goes to your router file.
+  {
+    path: '/admin',
+    component: admin,
+    name: 'admin',
+    beforeEnter: (to, from, next) => {
+      const loggedUser = store.state.loggedInUser
+      if (to.name === 'admin' && from.name === 'login' && loggedUser) {
+        to.query = loggedUser
+        next() // will direct user to the admin page
+      } else {
+        next('/') // will redirect user to the path inside next function
+      }
+    },
+  },
