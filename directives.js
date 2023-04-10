@@ -16,4 +16,22 @@ const icon = {
   },
 }
 
-export { edit, icon }
+
+const clickOutside = {
+  mounted(el, { value: cb }) {
+    el.clickOutside = (ev) => {
+      if (!el.contains(ev.target)) {
+        cb()
+        console.log('closing')
+      }
+    }
+    setTimeout(() => {
+      document.addEventListener('click', el.clickOutside)
+    }, 0)
+  },
+  unmounted(el) {
+    document.removeEventListener('click', el.clickOutside)
+  },
+}
+
+export { edit, icon , clickOutside}
