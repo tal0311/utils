@@ -1,14 +1,15 @@
-gTimer = 0
-var gElTimer
+var gTimer = 0
+var gIntervalId = null
 function renderTimer() {
-  var stopWatch = Number(gTimer).toFixed(3) + ''
-  gElTimer.innerHtml = `<p>${stopWatch}</p>`
+ var gElTimer = document.querySelector('.timer')
+ console.log(gElTimer)
+ var stopWatch = +gTimer.toFixed(2)
+ gElTimer.innerText = stopWatch
 }
 
 function startTimer() {
-  gIntervalId = setInterval(function () {
-    //global var
-    gTimer += 0.01
-    renderTimer()
-  }, 10)
+ gIntervalId = setInterval(() => {
+  gTimer += 0.01
+  renderTimer()
+ }, 105)
 }
