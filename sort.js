@@ -1,4 +1,4 @@
-/ var gSortBy = { rate: -1, name: 1, price: 1 }
+// var gSortBy = { rate: -1, name: 1, price: 1 }
 // sortBy(books, gSortBy)
 
 function sortBy(items, sortBy,) {
@@ -12,7 +12,7 @@ function sortBy(items, sortBy,) {
     })
 }
 
-var gSortBy = { key: 'rate', dir: -1 }
+// var gSortBy = { key: 'rate', dir: -1 }
 function sortBy(items, sortBy,) {
     if (!sortBy.key) return
     const isInts = ['price', 'rate']
